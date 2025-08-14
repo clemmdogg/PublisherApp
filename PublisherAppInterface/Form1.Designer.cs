@@ -34,6 +34,7 @@
             label1 = new Label();
             label2 = new Label();
             AuthorGridView = new DataGridView();
+            SetUPDataBaseButton = new Button();
             ((System.ComponentModel.ISupportInitialize)AuthorGridView).BeginInit();
             SuspendLayout();
             // 
@@ -50,14 +51,14 @@
             // 
             // FirstName
             // 
-            FirstName.Location = new Point(167, 35);
+            FirstName.Location = new Point(167, 85);
             FirstName.Name = "FirstName";
             FirstName.Size = new Size(184, 27);
             FirstName.TabIndex = 1;
             // 
             // LastName
             // 
-            LastName.Location = new Point(167, 93);
+            LastName.Location = new Point(167, 118);
             LastName.Name = "LastName";
             LastName.Size = new Size(184, 27);
             LastName.TabIndex = 2;
@@ -65,7 +66,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(40, 35);
+            label1.Location = new Point(40, 85);
             label1.Name = "label1";
             label1.Size = new Size(83, 20);
             label1.TabIndex = 3;
@@ -74,7 +75,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(41, 96);
+            label2.Location = new Point(41, 121);
             label2.Name = "label2";
             label2.Size = new Size(82, 20);
             label2.TabIndex = 4;
@@ -90,11 +91,23 @@
             AuthorGridView.Size = new Size(611, 590);
             AuthorGridView.TabIndex = 5;
             // 
+            // SetUPDataBaseButton
+            // 
+            SetUPDataBaseButton.Font = new Font("Segoe UI", 16F);
+            SetUPDataBaseButton.Location = new Point(41, 12);
+            SetUPDataBaseButton.Name = "SetUPDataBaseButton";
+            SetUPDataBaseButton.Size = new Size(310, 55);
+            SetUPDataBaseButton.TabIndex = 6;
+            SetUPDataBaseButton.Text = "Setup DataBase";
+            SetUPDataBaseButton.UseVisualStyleBackColor = true;
+            SetUPDataBaseButton.Click += SetUPDataBaseButton_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(998, 614);
+            Controls.Add(SetUPDataBaseButton);
             Controls.Add(AuthorGridView);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -117,5 +130,6 @@
         private Label label1;
         private Label label2;
         private DataGridView AuthorGridView;
+        private Button SetUPDataBaseButton;
     }
 }

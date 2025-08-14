@@ -42,7 +42,7 @@ namespace PublisherConsole
             }
         }
 
-        public void AddAuthor(string firstName, string lastName)
+        public void AddAuthor(string firstName, string lastName, PubContext context)
         {
             //var author = new Author { FirstName = "Julie", LastName = "Lerman" };
             //var author = new Author { FirstName = "Josie", LastName = "Newf" };
@@ -50,12 +50,11 @@ namespace PublisherConsole
             //var author = new Author { FirstName = "Sebastian", LastName = "Ølbutt" };
             //var author = new Author { FirstName = "Adolf", LastName = "H" };
             var author = new Author { FirstName = firstName, LastName = lastName };
-            using var context = new PubContext();
             context.Authors.Add(author);
             context.SaveChanges();
         }
 
-        public List<Author> GetAuthors() 
+        public List<Author>? GetAuthors() 
         {
             using var context = new PubContext();
             var authors = context.Authors.ToList();

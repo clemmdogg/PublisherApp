@@ -10,7 +10,7 @@ namespace PublisherData
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string dataBaseName = "PublisherCasperDb";
+            string dataBaseName = "PallesXXX";
             optionsBuilder.UseSqlServer(
                 $"Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog={dataBaseName};Trusted_Connection=true;TrustServerCertificate=true");
         }
