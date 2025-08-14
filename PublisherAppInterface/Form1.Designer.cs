@@ -35,13 +35,15 @@
             label2 = new Label();
             AuthorGridView = new DataGridView();
             SetUPDataBaseButton = new Button();
+            label3 = new Label();
+            dataBaseNameText = new TextBox();
             ((System.ComponentModel.ISupportInitialize)AuthorGridView).BeginInit();
             SuspendLayout();
             // 
             // AddAuthorButton
             // 
             AddAuthorButton.Font = new Font("Segoe UI", 30F);
-            AddAuthorButton.Location = new Point(41, 162);
+            AddAuthorButton.Location = new Point(41, 187);
             AddAuthorButton.Name = "AddAuthorButton";
             AddAuthorButton.Size = new Size(310, 415);
             AddAuthorButton.TabIndex = 0;
@@ -51,14 +53,14 @@
             // 
             // FirstName
             // 
-            FirstName.Location = new Point(167, 85);
+            FirstName.Location = new Point(167, 124);
             FirstName.Name = "FirstName";
             FirstName.Size = new Size(184, 27);
             FirstName.TabIndex = 1;
             // 
             // LastName
             // 
-            LastName.Location = new Point(167, 118);
+            LastName.Location = new Point(167, 157);
             LastName.Name = "LastName";
             LastName.Size = new Size(184, 27);
             LastName.TabIndex = 2;
@@ -66,7 +68,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(40, 85);
+            label1.Location = new Point(40, 124);
             label1.Name = "label1";
             label1.Size = new Size(83, 20);
             label1.TabIndex = 3;
@@ -75,7 +77,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(41, 121);
+            label2.Location = new Point(41, 160);
             label2.Name = "label2";
             label2.Size = new Size(82, 20);
             label2.TabIndex = 4;
@@ -94,7 +96,7 @@
             // SetUPDataBaseButton
             // 
             SetUPDataBaseButton.Font = new Font("Segoe UI", 16F);
-            SetUPDataBaseButton.Location = new Point(41, 12);
+            SetUPDataBaseButton.Location = new Point(41, 63);
             SetUPDataBaseButton.Name = "SetUPDataBaseButton";
             SetUPDataBaseButton.Size = new Size(310, 55);
             SetUPDataBaseButton.TabIndex = 6;
@@ -102,11 +104,30 @@
             SetUPDataBaseButton.UseVisualStyleBackColor = true;
             SetUPDataBaseButton.Click += SetUPDataBaseButton_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F);
+            label3.Location = new Point(41, 26);
+            label3.Name = "label3";
+            label3.Size = new Size(119, 20);
+            label3.TabIndex = 7;
+            label3.Text = "Database Name:";
+            // 
+            // dataBaseNameText
+            // 
+            dataBaseNameText.Location = new Point(167, 21);
+            dataBaseNameText.Name = "dataBaseNameText";
+            dataBaseNameText.Size = new Size(170, 27);
+            dataBaseNameText.TabIndex = 8;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(998, 614);
+            Controls.Add(dataBaseNameText);
+            Controls.Add(label3);
             Controls.Add(SetUPDataBaseButton);
             Controls.Add(AuthorGridView);
             Controls.Add(label2);
@@ -131,5 +152,7 @@
         private Label label2;
         private DataGridView AuthorGridView;
         private Button SetUPDataBaseButton;
+        private Label label3;
+        private TextBox dataBaseNameText;
     }
 }

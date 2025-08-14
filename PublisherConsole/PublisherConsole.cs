@@ -2,10 +2,6 @@
 using PublisherData;
 using PublisherDomain;
 
-using (PubContext context=new PubContext())
-{
-    context.Database.EnsureCreated();
-}
 namespace PublisherConsole
 {
     public class PublisherHelper
@@ -16,6 +12,9 @@ namespace PublisherConsole
         //AddAuthorWithBook();
         //GetAuthorsWithBooks();
 
+        public string DataBaseName { get; set; }
+        public PublisherHelper(string dataBaseName) {  DataBaseName = dataBaseName; }
+
         void AddAuthorWithBook()
         {
             var author = new Author { FirstName = "Julie", LastName = "Lerman" };
@@ -24,13 +23,13 @@ namespace PublisherConsole
             });
             author.Books.Add(new Book { Title = "Programming Entity Framework 2nd Ed",
                                         PublishDate = new DateOnly(2010,8,1) });
-            using var context = new PubContext();
+            using var context = new PubContext(DataBaseName);
             context.Authors.Add(author);
             context.SaveChanges();
         }
         void GetAuthorsWithBooks()
         {
-            using var context = new PubContext();
+            using var context = new PubContext(DataBaseName);
             var authors = context.Authors.Include(a => a.Books).ToList();
             foreach (var author in authors)
             {
@@ -54,16 +53,16 @@ namespace PublisherConsole
             context.SaveChanges();
         }
 
-        public List<Author>? GetAuthors() 
+        public List<Author> GetAuthors() 
         {
-            using var context = new PubContext();
+            using var context = new PubContext(DataBaseName);
             var authors = context.Authors.ToList();
             return authors;
         }
 
         public void MakeDataBase()
         {
-            using (PubContext context = new PubContext())
+            using (PubContext context = new PubContext(DataBaseName))
             {
                 context.Database.EnsureCreated();
             }

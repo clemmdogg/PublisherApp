@@ -18,8 +18,9 @@ namespace PublisherAppInterface
             string lastName = LastName.Text;
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName))
             { return; }
-            using var context = new PubContext();
-            PublisherHelper publisherHelper = new PublisherHelper();
+            if (dataBaseNameText.Text == "") { return; }
+            using var context = new PubContext(dataBaseNameText.Text);
+            PublisherHelper publisherHelper = new PublisherHelper(dataBaseNameText.Text);
             try
             {
                 publisherHelper.AddAuthor(firstName, lastName, context);
@@ -39,14 +40,17 @@ namespace PublisherAppInterface
         private void RefreshGrid()
         {
             AuthorGridView.DataSource = null;
-            PublisherHelper publisherHelper = new PublisherHelper();
+            if (dataBaseNameText.Text == "") { return; }
+            PublisherHelper publisherHelper = new PublisherHelper(dataBaseNameText.Text);
             AuthorGridView.DataSource = publisherHelper.GetAuthors();
         }
 
         private void SetUPDataBaseButton_Click(object sender, EventArgs e)
         {
-            PublisherHelper publisherHelper = new PublisherHelper();
+            if (dataBaseNameText.Text == "") { return; }
+            PublisherHelper publisherHelper = new PublisherHelper(dataBaseNameText.Text);
             publisherHelper.MakeDataBase();
+            RefreshGrid();
         }
     }
 }

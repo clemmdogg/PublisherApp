@@ -8,11 +8,17 @@ namespace PublisherData
         public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }
 
+        public string DataBaseName { get; set; }
+
+        public PubContext(string dataBaseName)
+        {
+            DataBaseName = dataBaseName;
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string dataBaseName = "PallesXXX";
             optionsBuilder.UseSqlServer(
-                $"Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog={dataBaseName};Trusted_Connection=true;TrustServerCertificate=true");
+                $"Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog={DataBaseName};Trusted_Connection=true;TrustServerCertificate=true");
         }
     }
 }
