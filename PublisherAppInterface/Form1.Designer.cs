@@ -115,7 +115,7 @@
             Controls.Add(FirstName);
             Controls.Add(AddAuthorButton);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Publisher App";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)AuthorGridView).EndInit();
             ResumeLayout(false);
